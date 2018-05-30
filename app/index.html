@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timilink</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- unit : header -->
+    <div class="timi-header">
+      <div class="global-grid-controller">
+        <a href="#" class="timi-logo"></a>
+        <ul class="timi-menu">
+          <li>
+            <a href="#adservice" class="timi-link timi-link-active">О сервисе</a>
+            <ul class="timi-submenu">
+              <li><a href="#adservice" class="timi-link">Рекламный сервис</a></li>
+              <li><a href="#companies" class="timi-link">Справочник организаций</a></li>
+              <li><a href="#places" class="timi-link timi-link-active">Места установки</a></li>
+              <li><a href="#stat" class="timi-link">Статистика</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#partners" class="timi-link">Партнёрам</a>
+          </li>
+          <li>
+            <a href="#news" class="timi-link">Новости</a>
+          </li>
+          <li>
+            <a href="#devices" class="timi-link">Устройства</a>
+          </li>
+          <li>
+            <a href="#support" class="timi-link">Помощ</a>
+          </li>
+          <li>
+            <a href="#contacts" class="timi-link">Контакты</a>
+          </li>
+        </ul>
+        <a href="#account" class="timi-link timi-button">Личный кабинет</a>
+      </div>
+    </div>
+
+    <!-- unit : page -->
+    <div class="timi-page">
+      <div class="global-grid-controller">
+        <h1>
+          О сервисе <span class="timi-mobile-bread">/ Места установки</span>
+        </h1>
+      </div>
+      <div class="timi-content">
+        <!-- page : about -->
+        <div class="timi-about">
+          <div class="global-grid-controller">
+            <ul class="timi-submenu">
+              <li><a href="#adservice" class="timi-link">Рекламный сервис</a></li>
+              <li><a href="#companies" class="timi-link">Справочник организаций</a></li>
+              <li><a href="#places" class="timi-link timi-link-active">Места установки</a></li>
+              <li><a href="#stat" class="timi-link">Статистика</a></li>
+            </ul>
+          </div>
+          <!-- about : places -->
+          <div class="timi-places timi-places-map">
+            <div class="timi-map"></div>
+            <div class="global-grid-controller">
+              <div class="timi-list">
+                Список
+              </div>
+            </div>
+            <div class="global-grid-controller">
+              <form class="timi-filter">
+                <input class="timi-input timi-icon-dot" name="place_abstract" type="text" placeholder="Город, адрес или объект">
+                <div class="timi-flyplace">
+                  <div class="timi-place-display">
+                    <input id="place_display_map" class="timi-input timi-radio-master" type="radio" name="place_display" value="map" checked>
+                    <label for="place_display_map" class="timi-input timi-radio-slave">
+                      <span class="timi-radio-name"><span class="timi-radio-icon timi-mask timi-mask-map"></span> Карта</span>
+                    </label>
+                    <input id="place_display_list" class="timi-input timi-radio-master" type="radio" name="place_display" value="list">
+                    <label for="place_display_list" class="timi-input timi-radio-slave">
+                      <span class="timi-radio-name"><span class="timi-radio-icon timi-mask timi-mask-list"></span> Список</span>
+                    </label>
+                  </div>
+                  <div class="timi-place-category">
+                    <input id="place_category_moll" class="timi-input timi-checkbox-master" type="checkbox" name="place_category" value="moll" checked>
+                    <label for="place_category_moll" class="timi-input timi-checkbox-slave">
+                      <span class="timi-checkbox-name"><span class="timi-checkbox-box"></span> Торговые центры</span>
+                    </label>
+                    <input id="place_category_business" class="timi-input timi-checkbox-master" type="checkbox" name="place_category" value="business" checked>
+                    <label for="place_category_business" class="timi-input timi-checkbox-slave">
+                      <span class="timi-checkbox-name"><span class="timi-checkbox-box"></span> Бизнес-центры</span>
+                    </label>
+                    <input id="place_category_school" class="timi-input timi-checkbox-master" type="checkbox" name="place_category" value="school" checked>
+                    <label for="place_category_school" class="timi-input timi-checkbox-slave">
+                      <span class="timi-checkbox-name"><span class="timi-checkbox-box"></span> Школы и ВУЗы</span>
+                    </label>
+                    <input id="place_category_ambulance" class="timi-input timi-checkbox-master" type="checkbox" name="place_category" value="ambulance" checked>
+                    <label for="place_category_ambulance" class="timi-input timi-checkbox-slave">
+                      <span class="timi-checkbox-name"><span class="timi-checkbox-box"></span> Больницы</span>
+                    </label>
+                    <input id="place_category_subway" class="timi-input timi-checkbox-master" type="checkbox" name="place_category" value="subway" checked>
+                    <label for="place_category_subway" class="timi-input timi-checkbox-slave">
+                      <span class="timi-checkbox-name"><span class="timi-checkbox-box"></span> Метро</span>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- unit : footer -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

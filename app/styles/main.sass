@@ -1,0 +1,397 @@
+// // /// //// ///// /////// //////////////// // *
+// timi layout control                        // *
+// // /// //// ///// /////// //////////////// // *
+// timi color
+$timi-blue: #0066b3
+$timi-red: #de0518
+$timi-persian: #23278c
+$timi-multiply: #0066b3
+$timi-pink: #fe5578
+// timi font-size
+$f-size: 15px
+$f-size-phablet: 14px
+$f-size-mobile: 12px
+$f-size-bigest: 260%
+$f-size-big: 161%
+$f-size-mid: 107%
+$f-size-normal: 100%
+$f-size-small: 61%
+$f-size-smallest: 38%
+// timi mockup constants
+$destruct-width: 360px
+$mobile-width: 800px
+$desktop-width-small: 960px
+$desktop-width-middle: 1020px
+$desktop-width-big: 1200px
+$micro-height: 640px
+// timi grid real breakpoints
+@mixin micro-height
+  @media (max-height: #{$micro-height})
+    @content
+@mixin device-from-desctop
+  @media (min-width: #{$desktop-width-big})
+    @content
+@mixin device-from-phablet
+  @media (min-width: #{$desktop-width-small})
+    @content
+@mixin device-from-mobile
+  @media (min-width: #{$mobile-width})
+    @content
+@mixin device-middle-desctop
+  @media (min-width: #{$desktop-width-small}) and (max-width: #{$desktop-width-middle})
+    @content
+@mixin device-phablet
+  @media (min-width: #{$desktop-width-small}) and (max-width: #{$desktop-width-big})
+    @content
+@mixin device-mobile
+  @media (min-width: #{$mobile-width}) and  (max-width: #{$desktop-width-small - 1})
+    @content
+@mixin device-to-mobile
+  @media (max-width: #{$mobile-width})
+    @content
+@mixin device-to-middle-desctop
+  @media (max-width: #{$desktop-width-middle})
+    @content
+@mixin device-to-destruct
+  @media (max-width: #{$destruct-width})
+    @content
+
+
+// // /// //// ///// /////// //////////////// // *
+// timi layout extends and utility            // *
+// // /// //// ///// /////// //////////////// // *
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+// mixins
+@mixin calc($property, $expression)
+  #{$property}: -moz-calc(#{$expression})
+  #{$property}: -webkit-calc(#{$expression})
+  #{$property}: calc(#{$expression})
+// browser fix
+.browserupgrade
+  margin: 0.2em 0
+  background: #ccc
+  color: #000
+  padding: 0.2em 0
+// http://adamkaplan.me/blog/sass-clearfix
+%clearfix
+  *zoom: 1
+  &:before, &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
+
+// // /// //// ///// /////// //////////////// // *
+// timi vector icons & masks                  // *
+// // /// //// ///// /////// //////////////// // *
+// icons
+.timi-icon-dot
+  background: url("../images/vectors/icon/dot.svg") no-repeat
+// masks
+.timi-mask
+  -webkit-mask-repeat: no-repeat
+  mask-repeat: no-repeat
+  -webkit-mask-position: center center
+  mask-position: center center
+  -webkit-mask-size: contain
+  mask-size: contain
+.timi-mask-map
+  -webkit-mask-image: url("../images/vectors/icon/mask/map.svg")
+  mask-image: url("../images/vectors/icon/mask/map.svg")
+.timi-mask-list
+  -webkit-mask-image: url("../images/vectors/icon/mask/list.svg")
+  mask-image: url("../images/vectors/icon/mask/list.svg")
+
+
+// // /// //// ///// /////// //////////////// // *
+// timi global browser & layout styles        // *
+// // /// //// ///// /////// //////////////// // *
+body
+  height: 100%
+  margin: 0
+  padding: 0
+  font-family: 'Roboto', sans-serif
+  font-weight: 400
+  font-size: $f-size
+  color: #000
+  min-width: 350px
+  letter-spacing: 0.4pt
+  @include device-phablet
+    -webkit-overflow-scrolling: touch
+    font-size: $f-size-phablet
+  @include device-mobile
+    -webkit-overflow-scrolling: touch
+    font-size: $f-size-mobile
+  @include device-to-mobile
+    -webkit-overflow-scrolling: touch
+    font-size: $f-size
+    background: url("../images/vectors/menu.svg") top 19px right 14px no-repeat/31px
+  @include device-from-mobile
+    padding-top: 40px
+input
+  font-family: 'Roboto', sans-serif
+h1, h2
+  color: #000000
+h1
+  margin-top: 32px
+  margin-left: -2px
+  font-size: 213%
+  letter-spacing: 0
+h2
+  font-size: 183%
+h3
+  font-size: 146%
+.timi-link
+  padding: 3px 7px
+  text-decoration: none
+  color: #000000
+  border-radius: 4px
+  &:hover
+    background-color: #F3F5F7
+.timi-link-active
+  background-color: #F3F5F7
+  cursor: default
+.timi-button
+  padding: 10px 16px
+  border: 1px solid #000000
+  border-radius: 4px
+
+// input's
+.timi-input
+  padding: 10px 16px
+  border: 2px solid #ebf0f5
+  background-color: #ffffff
+  border-radius: 4px
+  font-size: 100%
+  &:hover
+    background-color: #F3F5F7
+  &.timi-radio-master
+    display: none
+    &:checked
+      + .timi-radio-slave
+          background-color: #F3F5F7
+          cursor: default
+          .timi-radio-icon
+            background-color: #A0B3C9
+  &.timi-radio-slave
+    cursor: pointer
+    .timi-radio-icon
+      display: inline-block
+      width: 18px
+      height: 16px
+      margin-top: -3px
+      vertical-align: middle
+      background-color: #016AC2
+  &.timi-checkbox-master
+    display: none
+    &:checked
+      + .timi-checkbox-slave
+          .timi-checkbox-box
+            border-color: #A0B3C9
+            background: url("../images/vectors/icon/check.svg") center no-repeat / 14px
+  &.timi-checkbox-slave
+    padding: 0
+    cursor: pointer
+    &:hover
+      background: transparent
+      .timi-checkbox-box
+        border-color: #016AC2
+    .timi-checkbox-box
+      display: inline-block
+      margin-top: -2px
+      margin-right: 5px
+      width: 16px
+      height: 16px
+      border: 1px solid #ebf0f5
+      border-radius: 4px
+      vertical-align: middle
+
+
+// GGC
+.global-grid-controller
+  position: relative
+  width: 89%
+  max-width: $desktop-width-big
+  margin: 0 auto
+  @include device-to-mobile
+    width: 96%
+
+
+// // /// //// ///// /////// //////////////// // *
+// timi layout units                          // *
+// // /// //// ///// /////// //////////////// // *
+// unit : all
+.timi-menu, .timi-submenu
+  display: inline-block
+  white-space: nowrap
+  li
+    display: inline-block
+    list-style: none
+    margin: 0 2.05%
+
+// unit : header
+.timi-header
+  position: relative
+  text-align: right
+  @include device-from-mobile
+    .global-grid-controller
+      height: 87px
+      border-bottom: 2px solid #ebf0f5
+  .timi-logo
+    display: block
+    position: absolute
+    left: 0
+    width: 192px
+    height: 50px
+    background: url("../images/vectors/timilink_logo.svg") top left no-repeat / contain
+    @include device-to-mobile
+      top: 10px
+  .timi-menu, .timi-submenu
+    padding: 0
+    margin: 0
+  .timi-menu
+    vertical-align: middle
+    line-height: 56px
+    margin-right: 14%
+    @include device-middle-desctop
+      margin-right: 1.8%
+      li
+        margin: 0
+    @include device-phablet
+      margin-right: 2%
+      li
+        margin: 0 0.2%
+    @include device-mobile
+      margin-right: 2%
+      li
+        margin: 0 0.2%
+    @include device-to-mobile
+      display: none
+  .timi-button
+    line-height: 50px
+    vertical-align: middle
+    @include device-mobile
+      display: inline-block
+      border: 0
+      color: transparent
+      background: url("../images/vectors/user.svg") center no-repeat / contain
+      width: 16px
+      height: 16px
+    @include device-middle-desctop
+      display: inline-block
+      border: 0
+      color: transparent
+      background: url("../images/vectors/user.svg") center no-repeat / contain
+      width: 16px
+      height: 16px
+    @include device-to-mobile
+      display: none
+  .timi-submenu
+    @include device-from-mobile
+      display: none
+
+// unit : page
+.timi-page
+  @include device-to-mobile
+    padding-top: 36px
+    h1
+      font-size: 146%
+  .timi-mobile-bread
+    @include device-from-mobile
+      display: none
+  .timi-content
+    .timi-submenu
+      margin: 9px 0 0 -8px
+      padding: 0
+      @include device-to-mobile
+        display: none
+      li
+        margin: 0 1.45%
+        &:first-child
+          margin-left: 0
+        .timi-link
+          color: #016AC2
+        .timi-link-active
+          color: #000000
+
+// unit : footer
+
+
+// // /// //// ///// /////// //////////////// // *
+// styles below and till the end of the file  // *
+// separate user interface components v v v   // *
+// maybe for JSX special uncatenation         // *
+// // /// //// ///// /////// //////////////// // *
+
+// page : about
+// about : places
+.timi-places
+  position: relative
+  margin-top: 24px
+  .timi-filter
+    user-select: none
+    .timi-input
+      &[name="place_abstract"]
+        padding-left: 32px
+        margin-top: 25px
+        margin-left: -2px
+        width: 25%
+        min-width: 230px
+        background-position: left 10px center
+        background-size: 14px
+    .timi-flyplace
+      position: absolute
+      top: 25px
+      right: 0
+      width: 24%
+      min-width: 240px
+    .timi-place-display
+      .timi-radio-slave
+        width: 49%
+        box-sizing: border-box
+        text-align: center
+        float: left
+        &:last-child
+          float: right
+    .timi-place-category
+      display: block
+      margin-top: 60px
+      padding: 8% 11% 8% 11%
+      border: 2px solid #ebf0f5
+      background-color: #ffffff
+      border-radius: 4px
+      .timi-input
+        border: 0
+      .timi-checkbox-slave
+        display: block
+        margin-bottom: 16px
+        &:last-child
+          margin-bottom: 0
+  .timi-map
+    display: none
+    position: absolute
+    width: 100%
+    height: 61vh
+    background: url("../images/map.jpg") center top no-repeat / cover
+  .timi-list
+    display: none
+    position: absolute
+    top: 80px
+    left: 0
+    width: 100%
+    padding-right: 25%
+    box-sizing: border-box
+  &.timi-places-map
+    .timi-map
+      display: block
+    .timi-filter
+      .timi-input, .timi-place-category
+        border-color: transparent
+        box-shadow: 4px 10px 40px -16px #195C89
+      .timi-checkbox-slave
+        box-shadow: none
+  &.timi-places-list
+    .timi-list
+      display: block
